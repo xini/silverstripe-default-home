@@ -1,0 +1,19 @@
+---
+Name: fromholdio-default-home
+---
+
+---
+Only:
+  moduleexists: 'symbiote/silverstripe-multisites'
+---
+Symbiote\Multisites\Model\Site:
+  extensions:
+    - Fromholdio\DefaultHome\Extensions\DefaultHomeSiteExtension
+
+---
+Except:
+  moduleexists: 'symbiote/silverstripe-multisites'
+---
+SilverStripe\CMS\Model\SiteTree:
+  extensions:
+    - Fromholdio\DefaultHome\Extensions\DefaultHomeSiteTreeExtension

@@ -1,0 +1,20 @@
+{
+    "name": "fromholdio/silverstripe-default-home",
+    "type": "silverstripe-vendormodule",
+    "description": "A simple module that creates a Home Page per website or MultiSites Site.",
+    "license": "BSD-3-Clause",
+    "keywords": ["silverstripe", "cms", "default home", "home"],
+    "homepage": "https://github.com/fromholdio/silverstripe-default-home",
+    "support": {
+        "issues": "https://github.com/fromholdio/silverstripe-default-home/issues"
+    },
+    "authors": [{
+        "name": "Luke Fromhold",
+        "homepage": "https://fromhold.io"
+    }],
+    "require": {
+        "php": ">=5.6",
+        "silverstripe/vendor-plugin": "^1.0",
+        "silverstripe/cms": "^4.0"
+    }
+}
