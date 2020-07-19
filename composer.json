@@ -1,20 +1,26 @@
 {
-    "name": "fromholdio/silverstripe-default-home",
+    "name": "innoweb/silverstripe-default-home",
     "type": "silverstripe-vendormodule",
     "description": "A simple module that creates a Home Page per website or MultiSites Site.",
     "license": "BSD-3-Clause",
     "keywords": ["silverstripe", "cms", "default home", "home"],
-    "homepage": "https://github.com/fromholdio/silverstripe-default-home",
+    "homepage": "https://github.com/xini/silverstripe-default-home",
     "support": {
-        "issues": "https://github.com/fromholdio/silverstripe-default-home/issues"
+        "issues": "https://github.com/xini/silverstripe-default-home/issues"
     },
     "authors": [{
+        "name": "Florian Thoma",
+        "homepage": "https://innoweb.com.au"
+    },{
         "name": "Luke Fromhold",
-        "homepage": "https://fromhold.io"
+        "homepage": "https://innoweb.com.au"
     }],
     "require": {
         "php": ">=5.6",
         "silverstripe/vendor-plugin": "^1.0",
         "silverstripe/cms": "^4.0"
+    },
+    "replace": {
+        "fromholdio/silverstripe-default-home": "self.version"
     }
 }
