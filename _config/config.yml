@@ -1,5 +1,5 @@
 ---
-Name: fromholdio-default-home
+Name: innoweb-default-home
 ---
 
 ---
@@ -8,7 +8,7 @@ Only:
 ---
 Symbiote\Multisites\Model\Site:
   extensions:
-    - Fromholdio\DefaultHome\Extensions\DefaultHomeSiteExtension
+    - Innoweb\DefaultHome\Extensions\DefaultHomeSiteExtension
 
 ---
 Except:
@@ -16,4 +16,4 @@ Except:
 ---
 SilverStripe\CMS\Model\SiteTree:
   extensions:
-    - Fromholdio\DefaultHome\Extensions\DefaultHomeSiteTreeExtension
+    - Innoweb\DefaultHome\Extensions\DefaultHomeSiteTreeExtension

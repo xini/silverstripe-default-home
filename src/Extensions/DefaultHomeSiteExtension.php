@@ -1,6 +1,6 @@
 <?php
 
-namespace Fromholdio\DefaultHome\Extensions;
+namespace Innoweb\DefaultHome\Extensions;
 
 use SilverStripe\CMS\Controllers\RootURLController;
 use SilverStripe\CMS\Model\SiteTree;
