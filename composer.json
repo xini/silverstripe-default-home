@@ -20,6 +20,11 @@
         "silverstripe/vendor-plugin": "^1.0",
         "silverstripe/cms": "^4.0"
     },
+    "autoload": {
+        "psr-4": {
+            "Innoweb\\DefaultHome\\": "src/"
+        }
+    },
     "replace": {
         "fromholdio/silverstripe-default-home": "self.version"
     }
