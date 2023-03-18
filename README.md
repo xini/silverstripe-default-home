@@ -14,7 +14,9 @@ This module supports single site as well as [multisites](https://github.com/symb
 
 ## Requirements
 
-* SilverStripe CMS 4.x
+* SilverStripe CMS 5.x
+
+Note: this version is compatible with Silverstripe 5. For Silverstripe 4, please see the [2 release line](https://github.com/xini/silverstripe-default-home/tree/2).
 
 ## Installation
 
