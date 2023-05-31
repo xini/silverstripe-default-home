@@ -37,7 +37,7 @@ class HomePageExtension extends SiteTreeExtension
 
     public function onBeforeWrite()
     {
-        $this->URLSegment = RootURLController::config()->get('default_homepage_link');
-        $this->ShowInMenus = false;
+        $this->getOwner()->URLSegment = RootURLController::config()->get('default_homepage_link');
+        $this->getOwner()->ShowInMenus = false;
     }
 }
