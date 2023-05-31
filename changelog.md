@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.1]
+
+* fix missing getOwner() causing PHP 8.2 dynamic property error
+
 ## [3.0.0]
 
 * upgrade to Silverstripe 5
