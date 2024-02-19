@@ -3,6 +3,7 @@ Name: innoweb-default-home
 ---
 
 ---
+Name: innoweb-default-home-multi
 Only:
   moduleexists: 'symbiote/silverstripe-multisites'
 ---
@@ -11,8 +12,20 @@ Symbiote\Multisites\Model\Site:
     - Innoweb\DefaultHome\Extensions\DefaultHomeSiteExtension
 
 ---
+Name: innoweb-default-home-configured-multi
+Only:
+  moduleexists: 'fromholdio/silverstripe-configured-multisites'
+---
+Symbiote\Multisites\Model\Site:
+  extensions:
+    - Innoweb\DefaultHome\Extensions\DefaultHomeSiteExtension
+
+---
+Name: innoweb-default-home-nomulti
 Except:
-  moduleexists: 'symbiote/silverstripe-multisites'
+  moduleexists:
+    - 'symbiote/silverstripe-multisites'
+    - 'fromholdio/silverstripe-configured-multisites'
 ---
 SilverStripe\CMS\Model\SiteTree:
   extensions:
