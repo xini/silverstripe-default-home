@@ -5,14 +5,27 @@ namespace Innoweb\DefaultHome\Extensions;
 use SilverStripe\CMS\Controllers\RootURLController;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\CMS\Model\SiteTreeExtension;
+use SilverStripe\Core\Manifest\ModuleLoader;
 use SilverStripe\ORM\DB;
-use Symbiote\Multisites\Model\Site;
 
 class DefaultHomeSiteExtension extends SiteTreeExtension
 {
     public function onAfterWrite()
     {
-        $sites = Site::get();
+        $siteClass = null;
+        $manifest = ModuleLoader::inst()->getManifest();
+        if ($manifest->moduleExists('symbiote/silverstripe-multisites')) {
+            $siteClass = \Symbiote\Multisites\Model\Site::class;
+        }
+        if ($manifest->moduleExists('fromholdio/silverstripe-configured-multisites')) {
+            $siteClass = \Fromholdio\ConfiguredMultisites\Model\Site::class;
+        }
+
+        if (empty($siteClass)) {
+            return;
+        }
+
+        $sites = $siteClass::get();
         if ($sites->count() < 1) {
             return;
         }
@@ -27,7 +40,7 @@ class DefaultHomeSiteExtension extends SiteTreeExtension
         if (!is_a($homeClass, SiteTree::class, true)) {
             throw new \UnexpectedValueException(
                 'RootURLController requires the config var $default_homepage_class to be declared '
-                . 'and that var must be the name of a valid SiteTree subclass. Supplied value "' . $class
+                . 'and that var must be the name of a valid SiteTree subclass. Supplied value "' . $homeClass
                 . '" is not a valid subclass of SiteTree.'
             );
         }
