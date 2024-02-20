@@ -10,7 +10,7 @@ configured in `SilverStripe\CMS\Controllers\RootURLController::default_homepage_
 The module also makes sure that the homepage exists and can't be unpublished or deleted.
 It also hides the homepage from menus (`ShowInMenus=false`).
 
-This module supports single site as well as [multisites](https://github.com/symbiote/silverstripe-multisites) setups.
+This module supports single site as well as [multisites](https://github.com/symbiote/silverstripe-multisites) and [configured-multisites](https://github.com/fromholdio/silverstripe-configured-multisites) setups.
 
 ## Requirements
 
