@@ -16,7 +16,7 @@ Name: innoweb-default-home-configured-multi
 Only:
   moduleexists: 'fromholdio/silverstripe-configured-multisites'
 ---
-Symbiote\Multisites\Model\Site:
+Fromholdio\ConfiguredMultisites\Model\Site:
   extensions:
     - Innoweb\DefaultHome\Extensions\DefaultHomeSiteExtension
 
