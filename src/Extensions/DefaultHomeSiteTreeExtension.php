@@ -4,10 +4,10 @@ namespace Innoweb\DefaultHome\Extensions;
 
 use SilverStripe\CMS\Controllers\RootURLController;
 use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\CMS\Model\SiteTreeExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\ORM\DB;
 
-class DefaultHomeSiteTreeExtension extends SiteTreeExtension
+class DefaultHomeSiteTreeExtension extends Extension
 {
     public function requireDefaultRecords()
     {
