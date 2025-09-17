@@ -21,7 +21,7 @@ class DefaultHomeSiteTreeExtension extends Extension
         if (!is_a($homeClass, SiteTree::class, true)) {
             throw new \UnexpectedValueException(
                 'RootURLController requires the config var $default_homepage_class to be declared '
-                . 'and that var must be the name of a valid SiteTree subclass. Supplied value "' . $class
+                . 'and that var must be the name of a valid SiteTree subclass. Supplied value "' . $homeClass
                 . '" is not a valid subclass of SiteTree.'
             );
         }
