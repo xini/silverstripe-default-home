@@ -9,7 +9,7 @@ use SilverStripe\ORM\DB;
 
 class DefaultHomeSiteTreeExtension extends Extension
 {
-    public function requireDefaultRecords()
+    public function onRequireDefaultRecords()
     {
         $homeClass = RootURLController::config()->get('default_homepage_class');
         if (!$homeClass) {
