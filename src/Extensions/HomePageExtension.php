@@ -3,10 +3,10 @@
 namespace Innoweb\DefaultHome\Extensions;
 
 use SilverStripe\CMS\Controllers\RootURLController;
-use SilverStripe\CMS\Model\SiteTreeExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 
-class HomePageExtension extends SiteTreeExtension
+class HomePageExtension extends Extension
 {
     private static $allowed_children = [];
 

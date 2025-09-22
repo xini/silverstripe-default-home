@@ -4,11 +4,11 @@ namespace Innoweb\DefaultHome\Extensions;
 
 use SilverStripe\CMS\Controllers\RootURLController;
 use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\CMS\Model\SiteTreeExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\Core\Manifest\ModuleLoader;
 use SilverStripe\ORM\DB;
 
-class DefaultHomeSiteExtension extends SiteTreeExtension
+class DefaultHomeSiteExtension extends Extension
 {
     public function onAfterWrite()
     {

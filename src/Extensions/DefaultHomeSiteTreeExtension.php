@@ -4,12 +4,12 @@ namespace Innoweb\DefaultHome\Extensions;
 
 use SilverStripe\CMS\Controllers\RootURLController;
 use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\CMS\Model\SiteTreeExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\ORM\DB;
 
-class DefaultHomeSiteTreeExtension extends SiteTreeExtension
+class DefaultHomeSiteTreeExtension extends Extension
 {
-    public function requireDefaultRecords()
+    public function onRequireDefaultRecords()
     {
         $homeClass = RootURLController::config()->get('default_homepage_class');
         if (!$homeClass) {
@@ -21,7 +21,7 @@ class DefaultHomeSiteTreeExtension extends SiteTreeExtension
         if (!is_a($homeClass, SiteTree::class, true)) {
             throw new \UnexpectedValueException(
                 'RootURLController requires the config var $default_homepage_class to be declared '
-                . 'and that var must be the name of a valid SiteTree subclass. Supplied value "' . $class
+                . 'and that var must be the name of a valid SiteTree subclass. Supplied value "' . $homeClass
                 . '" is not a valid subclass of SiteTree.'
             );
         }
