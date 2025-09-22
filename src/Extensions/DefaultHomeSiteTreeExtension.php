@@ -6,6 +6,7 @@ use SilverStripe\CMS\Controllers\RootURLController;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Core\Extension;
 use SilverStripe\ORM\DB;
+use UnexpectedValueException;
 
 class DefaultHomeSiteTreeExtension extends Extension
 {
@@ -13,13 +14,14 @@ class DefaultHomeSiteTreeExtension extends Extension
     {
         $homeClass = RootURLController::config()->get('default_homepage_class');
         if (!$homeClass) {
-            throw new \UnexpectedValueException(
+            throw new UnexpectedValueException(
                 'RootURLController requires the config var $default_homepage_class to be declared. '
                 . 'Nothing set.'
             );
         }
+        
         if (!is_a($homeClass, SiteTree::class, true)) {
-            throw new \UnexpectedValueException(
+            throw new UnexpectedValueException(
                 'RootURLController requires the config var $default_homepage_class to be declared '
                 . 'and that var must be the name of a valid SiteTree subclass. Supplied value "' . $homeClass
                 . '" is not a valid subclass of SiteTree.'
@@ -42,15 +44,14 @@ class DefaultHomeSiteTreeExtension extends Extension
                     'created'
                 );
             }
-        }
-        else {
+        } else {
             $homePage = $homeClass::create();
             $homePage->Title = 'Home';
             $homePage->ParentID = 0;
             $homePage->write();
             $homePage->publishSingle();
             $homePage->flushCache();
-            DB::alteration_message('Home page created','created');
+            DB::alteration_message('Home page created', 'created');
         }
     }
 }

@@ -7,6 +7,8 @@ use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Core\Extension;
 use SilverStripe\Core\Manifest\ModuleLoader;
 use SilverStripe\ORM\DB;
+use Symbiote\Multisites\Model\Site;
+use UnexpectedValueException;
 
 class DefaultHomeSiteExtension extends Extension
 {
@@ -15,13 +17,14 @@ class DefaultHomeSiteExtension extends Extension
         $siteClass = null;
         $manifest = ModuleLoader::inst()->getManifest();
         if ($manifest->moduleExists('symbiote/silverstripe-multisites')) {
-            $siteClass = \Symbiote\Multisites\Model\Site::class;
+            $siteClass = Site::class;
         }
+        
         if ($manifest->moduleExists('fromholdio/silverstripe-configured-multisites')) {
             $siteClass = \Fromholdio\ConfiguredMultisites\Model\Site::class;
         }
 
-        if (empty($siteClass)) {
+        if ($siteClass === null || ($siteClass === '' || $siteClass === '0')) {
             return;
         }
 
@@ -32,13 +35,14 @@ class DefaultHomeSiteExtension extends Extension
 
         $homeClass = RootURLController::config()->get('default_homepage_class');
         if (!$homeClass) {
-            throw new \UnexpectedValueException(
+            throw new UnexpectedValueException(
                 'RootURLController requires the config var $default_homepage_class to be declared. '
                 . 'Nothing set.'
             );
         }
+        
         if (!is_a($homeClass, SiteTree::class, true)) {
-            throw new \UnexpectedValueException(
+            throw new UnexpectedValueException(
                 'RootURLController requires the config var $default_homepage_class to be declared '
                 . 'and that var must be the name of a valid SiteTree subclass. Supplied value "' . $homeClass
                 . '" is not a valid subclass of SiteTree.'
@@ -68,8 +72,7 @@ class DefaultHomeSiteExtension extends Extension
                         'created'
                     );
                 }
-            }
-            else {
+            } else {
                 $homePage = $homeClass::create();
                 $homePage->Title = 'Home';
                 $homePage->URLSegment = $homeLink;
@@ -77,7 +80,7 @@ class DefaultHomeSiteExtension extends Extension
                 $homePage->write();
                 $homePage->publishSingle();
                 $homePage->flushCache();
-                DB::alteration_message('Home page created','created');
+                DB::alteration_message('Home page created', 'created');
             }
         }
     }
